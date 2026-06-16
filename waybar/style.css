@@ -1,0 +1,95 @@
+@import "../../theme/current.css";
+
+* {
+    font-family: "Monaspace Neon", "Font Awesome 6 Free", sans-serif;
+    font-size: 12px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: @color-base;
+    color: @color-primary;
+    border-bottom: 1px solid @color-subtle;
+}
+
+#clock {
+    padding: 0 16px;
+    color: @color-primary;
+    font-weight: bold;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: @color-muted;
+}
+
+#workspaces button.active {
+    color: @color-accent;
+}
+
+#backlight, #battery, #bluetooth, #pulseaudio {
+    padding: 0 10px;
+    color: @color-secondary;
+}
+
+#backlight:hover, #battery:hover, #bluetooth:hover, #pulseaudio:hover {
+    color: @color-accent;
+}@import "../../theme/current.css";
+
+* {
+    font-family: "Monaspace Neon", "Inter", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window#waybar {
+    background-color: @color-base;
+    color: @color-primary;
+    border-bottom: 1px solid @color-subtle;
+}
+
+#clock {
+    padding: 0 16px;
+    color: @color-primary;
+    font-weight: bold;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: @color-muted;
+    background: transparent;
+    font-size: 14px;
+}
+
+#workspaces button.active {
+    color: @color-accent;
+}
+
+#workspaces button:hover {
+    color: @color-primary;
+}
+
+
+#window {
+    color: @color-primary;
+    font-weight: 500;
+}
+
+/* --- МОДУЛИ СПРАВА --- */
+#cpu, #memory, #backlight, #pulseaudio {
+    padding: 0 16px;
+    color: @color-secondary;
+}
+
+#pulseaudio {
+    color: @color-primary;
+}
+
+#pulseaudio.muted {
+    color: @color-accent;
+}
