@@ -1,0 +1,1 @@
+/home/kirck/dotfiles/theme/dark.lua
