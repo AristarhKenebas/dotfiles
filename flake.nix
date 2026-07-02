@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";    
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     firefox-nightly.url = "github:nix-community/flake-firefox-nightly";
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: 
@@ -15,19 +19,15 @@
       inherit system; 
       config.allowUnfree = true;
     };
-
-    baseArgs = { inherit inputs pkgs-unstable system; };
   in {
     nixosConfigurations = {
-      
       thinkbook = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = baseArgs;
+        specialArgs = { inherit inputs pkgs-unstable; };
         modules = [ 
           ./hosts/thinkbook/default.nix 
         ];
       };
-
     };
   };
 }

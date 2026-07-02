@@ -9,6 +9,8 @@
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/apps.nix
     ../../modules/programs/steam.nix
+    ../../modules/core/clean-home.nix
+    ../../modules/core/security.nix
     ../../users/kirck.nix
   ];
 

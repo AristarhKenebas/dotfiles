@@ -1,5 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, inputs, ... }@args:
 
+let
+  pkgs-unstable = args.pkgs-unstable or pkgs;
+in
 {
   programs.hyprland = {
     enable = true;
@@ -8,19 +11,46 @@
   };
 
   hardware.graphics.enable = true;
-
+  
   environment.variables.TERMINAL = "foot";
 
   services.displayManager.ly.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # Терминал и системные утилиты Wayland
-    foot fastfetch brightnessctl yazi playerctl xdg-utils cliphist wl-clipboard
-    waybar hyprlock hypridle wlogout hyprshot swappy wofi wf-recorder slurp
-    swayosd hyprpolkitagent hyprlauncher swaynotificationcenter libnotify
-    pyprland awww
+    # Wayland utilities and tools
+    foot 
+    fastfetch 
+    brightnessctl 
+    yazi 
+    playerctl 
+    xdg-utils 
+    cliphist 
+    wl-clipboard
+    waybar 
+    hyprlock 
+    hypridle 
+    wlogout 
+    hyprshot 
+    swappy 
+    wofi 
+    wf-recorder 
+    slurp
+    swayosd 
+    hyprpolkitagent 
+    hyprlauncher 
+    swaynotificationcenter 
+    libnotify
+    pyprland 
+    awww
 
-    # Графические системные утилиты
-    nautilus wireplumber pavucontrol oculante clapper
+    # Graphical system utilities
+    nautilus 
+    wireplumber 
+    pavucontrol 
+    oculante 
+    clapper
+
+    # Development tools
+    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

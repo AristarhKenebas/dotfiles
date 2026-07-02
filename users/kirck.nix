@@ -9,26 +9,33 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    
+    enableCompletion = false; 
+    
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
+    
+    histFile = "$HOME/.local/state/zsh/history";
+
+    promptInit = "";
+
     interactiveShellInit = ''
+      mkdir -p $HOME/.cache/zsh
+      autoload -U compinit
+      compinit -d $HOME/.cache/zsh/zcompdump-$ZSH_VERSION
+
       eval "$(starship init zsh)"
     '';
   };
-
   environment.systemPackages = with pkgs; [
     starship
     chezmoi
     git
   ];
 
-  environment.variables = {
-    ZDOTDIR = "$HOME/.config/zsh";
-    HISTFILE = "$HOME/.local/state/zsh/history";
-    NPM_CONFIG_USERCONFIG = "$HOME/.config/npm/npmrc";
-    GOPATH = "$HOME/.local/share/go";
-    CARGO_HOME = "$HOME/.local/share/cargo";
-    GNUPGHOME = "$HOME/.local/share/gnupg";
+  system.userActivationScripts.zsh-history-dir = {
+    text = ''
+      mkdir -p ~/.local/state/zsh
+    '';
   };
 }
