@@ -49,6 +49,10 @@ in
     pavucontrol 
     oculante 
     clapper
+    
+    # Gaming and compatibility tools
+    wineWow64Packages.stable 
+    winetricks
 
     # Development tools
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
