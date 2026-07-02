@@ -1,0 +1,65 @@
+@import "/home/kirck/.config/theme/current.css";
+
+* {
+    font-family: "Monaspace Neon", "Inter", sans-serif;
+    font-size: 14px;
+    border: none;
+    outline: none; /* Убивает уродливую синюю обводку */
+    box-shadow: none;
+    background: transparent;
+}
+
+window {
+    background-color: @color-base;
+    border: 1px solid @color-subtle;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Поле ввода */
+#input {
+    margin: 15px;
+    padding: 12px 15px;
+    background-color: @color-card;
+    border: 1px solid @color-subtle;
+    color: @color-primary;
+}
+
+#input:focus {
+    border: 1px solid @color-accent;
+}
+
+/* Иконка лупы */
+#input image {
+    margin-right: 12px;
+    color: @color-muted;
+}
+
+#inner-box {
+    margin: 0px 15px 15px 15px;
+}
+
+#entry {
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid @color-subtle;
+    text-align: center;
+}
+
+#text {
+    color: @color-secondary;
+}
+
+/* Эффект при наведении - стиль Nuxt-карточек */
+#entry:selected {
+    background-color: @color-base;
+    border: 1px solid @color-accent;
+}
+
+#entry:selected #text {
+    color: @color-accent;
+}

@@ -1,0 +1,28 @@
+@import "/home/kirck/.config/theme/current.css";
+
+* {
+    font-family: "Monaspace Neon";
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+window {
+    background-color: @color-base;
+    border: 1px solid @color-subtle;
+}
+
+#input {
+    margin: 15px;
+    padding: 10px;
+    background-color: @color-card;
+    border: 1px solid @color-subtle;
+    color: @color-primary;
+}
+
+#scroll { margin: 5px; }
+
+#entry { padding: 10px; margin: 5px; border: 1px solid @color-subtle; }
+#entry:selected { border: 1px solid @color-accent; background-color: @color-subtle; }
+#text { color: @color-primary; }

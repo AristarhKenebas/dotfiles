@@ -1,0 +1,11 @@
+[config]
+show=drun
+prompt=// search
+width=450
+height=450
+layer=overlay
+allow_images=true
+image_size=24
+term=foot
+insensitive=true
+hide_scroll=true
